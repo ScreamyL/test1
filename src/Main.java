@@ -1,5 +1,6 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -15,35 +16,16 @@ public class Main {
             massiv[i] = (int) (Math.random() * 1000);
         }
 
-        int max = massiv[0];
-        for (int i = 1; i < size; i++) {
-            if (massiv[i] > max) {
-                max = massiv[i];
-            }
-        }
+        System.out.println();
 
-        int min = massiv[0];
-        for (int i = 1; i < size; i++) {
-            if (massiv[i] < min) {
-                min = massiv[i];
-            }
-        }
 
-        int sum = 0;
-        for (int num : massiv) {
-            sum += num;
-        }
+        System.out.println("неотсортированный: " + Arrays.toString(massiv));
+        Arrays.sort(massiv);
+        System.out.println("массив: " + Arrays.toString(massiv));
+        System.out.println("минимальное: " + massiv[0]);
+        System.out.println("максимальное: " + massiv[massiv.length - 1] + "\n");
+        System.out.println("среднее: " + (double) Arrays.stream(massiv).sum() / size + "\n");
 
-        double average = (double) sum / size;
-
-        System.out.println("Массив:");
-        for (int num : massiv) {
-            System.out.print(num + " ");
-        }
-
-        System.out.println("\nМаксимальное значение: " + max);
-        System.out.println("Минимальное значение: " + min);
-        System.out.println("Среднее значение: " + average);
 
         scanner.close();
     }
